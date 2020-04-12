@@ -1,16 +1,16 @@
-from app import app, db
-from app.views import recommendation_views
+#from app import app, db
+#from app.views import recommendation_views
 from flask import Flask
 from flask_cors import CORS, cross_origin
-from app.models import *
+#from app.models import *
 
 
 # Define WSGI app object
 app = Flask(__name__)
 uri = os.environ['DATABASE_URL']
-app.config["SQLALCHEMY_DATABASE_URI"] = uri
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-db = SQLAlchemy(app)
+#app.config["SQLALCHEMY_DATABASE_URI"] = uri
+#app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+#db = SQLAlchemy(app)
 CORS(app)
 
 # https://www.digitalocean.com/community/tutorials/how-to-structure-large-flask-applications
