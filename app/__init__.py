@@ -3,10 +3,11 @@ from app.config import DATABASE_URI
 from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import create_engine
+import os
 
 # Define WSGI app object
 app = Flask(__name__)
-
+uri = os.environ['DATABASE_URI'] or DATABASE_URI
 
 engine = create_engine(DATABASE_URI)
 app.config["SQLALCHEMY_DATABASE_URI"] = DATABASE_URI
