@@ -9,8 +9,8 @@ import os
 app = Flask(__name__)
 uri = os.environ['DATABASE_URI'] or DATABASE_URI
 
-engine = create_engine(DATABASE_URI)
-app.config["SQLALCHEMY_DATABASE_URI"] = DATABASE_URI
+engine = create_engine(uri)
+app.config["SQLALCHEMY_DATABASE_URI"] = uri
 db = SQLAlchemy(app)
 # create db file using SQLAlchemy
 db.create_all()
