@@ -20,7 +20,7 @@ CORS(app)
 # recommendation_views = Blueprint("recommendation_views", __name__, url_prefix="/api/v1/")
 # app.register_blueprint(recommendation_views)
 
-@app.route("recommendations", methods=["GET"])
+@app.route("/recommendations", methods=["GET"])
 def get_recommendations():
   print("hello")
   return "hello world!"
