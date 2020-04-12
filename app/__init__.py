@@ -1,5 +1,4 @@
 from flask import Flask
-from app.config import DATABASE_URI
 from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import create_engine
@@ -7,7 +6,7 @@ import os
 
 # Define WSGI app object
 app = Flask(__name__)
-uri = os.environ['DATABASE_URL'] or DATABASE_URI
+uri = os.environ['DATABASE_URL']
 
 engine = create_engine(uri)
 app.config["SQLALCHEMY_DATABASE_URI"] = uri
