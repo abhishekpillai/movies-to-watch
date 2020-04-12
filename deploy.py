@@ -23,7 +23,18 @@ CORS(app)
 @app.route("/recommendations", methods=["GET"])
 def get_recommendations():
   print("hello")
-  return "hello world!"
+  movies = list()
+  movie = {
+    "movie_id": 1,
+    "title": "Test Movie",
+    "artists": list(),
+    "ranking": 1
+  }
+  movies.append(movie)
+  response = {
+    "movies": movies
+  }
+  return jsonify(response)
   #page = request.args.get('page', default=1)
   #page_int = int(page)
   #items = request.args.get('items', default=4)
