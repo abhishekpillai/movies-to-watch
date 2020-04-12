@@ -6,17 +6,20 @@ from app.models import *
 
 
 # Define WSGI app object
+app = Flask(__name__)
+uri = os.environ['DATABASE_URL']
+app.config["SQLALCHEMY_DATABASE_URI"] = uri
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+db = SQLAlchemy(app)
 CORS(app)
-
 
 # https://www.digitalocean.com/community/tutorials/how-to-structure-large-flask-applications
 # if __name__ == "__main__":
 #   app.run(host='0.0.0.0', port=8081, debug=True)
-recommendation_views = Blueprint("recommendation_views", __name__, url_prefix="/api/v1/")
-app.register_blueprint(recommendation_views)
+# recommendation_views = Blueprint("recommendation_views", __name__, url_prefix="/api/v1/")
+# app.register_blueprint(recommendation_views)
 
-
-@recommendation_views.route("recommendations", methods=["GET"])
+@app.route("recommendations", methods=["GET"])
 def get_recommendations():
     print("hello")
   page = request.args.get('page', default=1)
