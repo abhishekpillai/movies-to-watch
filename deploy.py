@@ -1,6 +1,6 @@
 #from app import app, db
 #from app.views import recommendation_views
-from flask import Flask
+from flask import Flask, jsonify
 from flask_cors import CORS, cross_origin
 import os
 #from app.models import *
