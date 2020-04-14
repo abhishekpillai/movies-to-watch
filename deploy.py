@@ -11,7 +11,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 CORS(app)
 
-@app.route("/recommendations", methods=["GET"])
+@app.route("/api/v1/recommendations", methods=["GET"])
 def get_recommendations():
   print("hello")
   # movies = list()

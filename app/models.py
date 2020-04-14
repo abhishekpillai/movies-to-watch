@@ -14,6 +14,7 @@ from app import db
 Base = declarative_base()
 
 class Movie(db.Model):
+  __tablename__ = 'movies'
   id = Column(Integer, primary_key=True)
   title = Column(String)
   director = Column(String)
@@ -21,15 +22,18 @@ class Movie(db.Model):
   created_at = Column(DateTime, default=datetime.datetime.utcnow())
 
 class Artist(db.Model):
+  __tablename__ = 'artists'
   id = Column(Integer, primary_key=True)
   name = Column(String)
 
 class Source(db.Model):
+  __tablename__ = 'sources'
   id = Column(Integer, primary_key=True)
   source_link = Column(String)
   source_short_name = Column(String)
 
 class Recommendation(db.Model):
+  __tablename__ = 'recommendations'
   id = Column(Integer, primary_key=True)
   artist_id = Column(Integer, ForeignKey('artist.id'), primary_key=True)
   artist = relationship("Artist", uselist=False)
